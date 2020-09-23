@@ -2,8 +2,8 @@
 // const rateLimit = require('express-rate-limit');
 const express = require('express');
 // const cookieParser = require('cookie-parser');
-// const mongoose = require('mongoose');
-// const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 // const { requestLogger, errorLogger } = require('./middleware/logger');
 
 // const signin = require('./routes/signin');
@@ -14,12 +14,12 @@ const express = require('express');
 // const celebValidateRequest = require('./middleware/requestValidators');
 // const NotFoundError = require('./errors/NotFoundError');
 
-// mongoose.connect('mongodb://localhost:27017/mestodb', {
-//   useNewUrlParser: true,
-//   useCreateIndex: true,
-//   useFindAndModify: false,
-//   useUnifiedTopology: true,
-// });
+mongoose.connect('mongodb://localhost:27017/mestodb', {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+  useUnifiedTopology: true,
+});
 const app = express();
 
 const { PORT = 3000, BASE_PATH = '/' } = process.env;
@@ -30,7 +30,7 @@ const { PORT = 3000, BASE_PATH = '/' } = process.env;
 // });
 
 // app.use(limiter);
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 // app.use(cookieParser());
 // app.use(requestLogger);
 // app.get(`${BASE_PATH}/crash-test`, () => {
