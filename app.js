@@ -12,7 +12,7 @@ const signin = require('./routes/signin');
 // const users = require('./routes/users');
 // const auth = require('./middleware/auth');
 // const celebValidateRequest = require('./middleware/requestValidators');
-const NotFoundError = require('./errors/NotFoundError');
+// const NotFoundError = require('./errors/NotFoundError');
 
 mongoose.connect('mongodb://localhost:27017/news_explorer', {
   useNewUrlParser: true,
@@ -23,6 +23,7 @@ mongoose.connect('mongodb://localhost:27017/news_explorer', {
 const app = express();
 
 const { PORT = 3000, BASE_PATH = '/' } = process.env;
+// const { PORT = 3000 } = process.env;
 
 // const limiter = rateLimit({
 //   windowMs: 15 * 60 * 1000,
@@ -39,12 +40,13 @@ app.use(bodyParser.json());
 //   }, 0);
 // });
 
-app.use(`${BASE_PATH}/signup`, signup);
-app.use(`${BASE_PATH}/signin`, signin);
+// app.use('/signup', signup);
+app.use(`${BASE_PATH}signup`, signup);
+app.use(`${BASE_PATH}signin`, signin);
 // app.use(auth);
-// app.use(`${BASE_PATH}/cards`, cards);
-// app.use(`${BASE_PATH}/users`, users);
-app.use((req, res, next) => next(new NotFoundError()));
+// app.use(`${BASE_PATH}cards`, cards);
+// app.use(`${BASE_PATH}users`, users);
+// app.use((req, res, next) => next(new NotFoundError()));
 // app.use(errorLogger);
 // app.use(celebValidateRequest);
 app.use((err, req, res, next) => {

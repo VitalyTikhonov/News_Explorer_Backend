@@ -5,14 +5,13 @@ const User = require('../models/user');
 
 const DocNotFoundError = require('../errors/DocNotFoundError');
 // const NoDocsError = require('../errors/NoDocsError');
-const BadNewPasswordError = require('../errors/BadNewPasswordError');
+// const BadNewPasswordError = require('../errors/BadNewPasswordError');
 const EmailInUseError = require('../errors/EmailInUseError');
 const InvalidInputError = require('../errors/InvalidInputError');
 // const UnknownRequestorError = require('../errors/UnknownRequestorError');
 const MissingCredentialsError = require('../errors/MissingCredentialsError');
 
 const { NODE_ENV, JWT_SECRET } = process.env;
-const { passwordRegexp } = require('../helpers/helpers');
 
 function createUser(req, res, next) {
   const {
@@ -21,40 +20,30 @@ function createUser(req, res, next) {
     name,
   } = req.body;
 
-  const PSWLENGTH = 8;
-
-  if (password && password.length >= PSWLENGTH && password.match(passwordRegexp)) {
-    /* По аналогии с тем, как в тренажере предложено сделать для авторизации
-    (User.findByCredentials), пытался сделать и здесь, чтобы проверять, не занята ли почта,
-    прежде чем считать хеш пароля. Но не получилось разобраться с множеством ошибок, которые
-    возникали. */
-    bcrypt.hash(password, 10)
-      .then((hash) => {
-        User.create({
-          email,
-          password: hash,
-          name,
-        })
-          .then((respObj) => {
-            /* переменная с деструктуризацией const {свойства} = respObj удалена
-            для исключения ошибки линтинга */
-            res.send({
-              email: respObj.email,
-              name: respObj.name,
-              _id: respObj._id,
-            });
-          })
-          .catch((err) => {
-            if (err instanceof mongoose.Error.ValidationError) {
-              next(new InvalidInputError(err));
-            } else if (err.code === 11000) {
-              next(new EmailInUseError());
-            }
+  bcrypt.hash(password, 10)
+    .then((hash) => {
+      User.create({
+        email,
+        password: hash,
+        name,
+      })
+        .then((respObj) => {
+          /* переменная с деструктуризацией const {свойства} = respObj удалена
+          для исключения ошибки линтинга */
+          res.send({
+            email: respObj.email,
+            name: respObj.name,
+            _id: respObj._id,
           });
-      });
-  } else {
-    next(new BadNewPasswordError(PSWLENGTH));
-  }
+        })
+        .catch((err) => {
+          if (err instanceof mongoose.Error.ValidationError) {
+            next(new InvalidInputError(err));
+          } else if (err.code === 11000) {
+            next(new EmailInUseError());
+          }
+        });
+    });
 }
 
 function login(req, res, next) {

@@ -2,8 +2,6 @@ const mongoose = require('mongoose');
 const { errors } = require('./errorMessages');
 const InvalidObjectIdError = require('../errors/InvalidObjectIdError');
 
-const passwordRegexp = /[\u0023-\u0126]+/;
-
 function joinErrorMessages(errorObject) {
   const fieldErrorMap = errors.invalidInput;
   const expectedBadFields = Object.keys(fieldErrorMap);
@@ -30,5 +28,4 @@ function isObjectIdValid(id, docType) {
 module.exports = {
   joinErrorMessages,
   isObjectIdValid,
-  passwordRegexp,
 };
