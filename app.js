@@ -14,7 +14,7 @@ const bodyParser = require('body-parser');
 // const celebValidateRequest = require('./middleware/requestValidators');
 // const NotFoundError = require('./errors/NotFoundError');
 
-mongoose.connect('mongodb://localhost:27017/mestodb', {
+mongoose.connect('mongodb://localhost:27017/news_explorer', {
   useNewUrlParser: true,
   useCreateIndex: true,
   useFindAndModify: false,
