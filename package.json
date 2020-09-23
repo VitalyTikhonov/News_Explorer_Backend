@@ -1,0 +1,26 @@
+{
+  "name": "news_explorer_backend",
+  "version": "0.0.1",
+  "description": "Бэкенд дипломного проекта на курсе Веб-разработка в Яндекс.Практикуме // The backend of the Yandex.Praktikum webdev course final project",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VitalyTikhonov/News_Explorer_Backend.git"
+  },
+  "author": "Vitaliy Tikhonov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VitalyTikhonov/News_Explorer_Backend/issues"
+  },
+  "homepage": "https://github.com/VitalyTikhonov/News_Explorer_Backend#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
