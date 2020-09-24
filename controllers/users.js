@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const User = require('../models/user');
 
+const User = require('../models/user');
+const { JWT_SECRET, JWT_EXPIRY_TERM } = require('../configs/config');
 const DocNotFoundError = require('../errors/DocNotFoundError');
 // const NoDocsError = require('../errors/NoDocsError');
 // const BadNewPasswordError = require('../errors/BadNewPasswordError');
@@ -10,8 +11,6 @@ const EmailInUseError = require('../errors/EmailInUseError');
 const InvalidInputError = require('../errors/InvalidInputError');
 // const UnknownRequestorError = require('../errors/UnknownRequestorError');
 const MissingCredentialsError = require('../errors/MissingCredentialsError');
-
-const { NODE_ENV, JWT_SECRET } = process.env;
 
 function createUser(req, res, next) {
   const {
@@ -61,8 +60,8 @@ function login(req, res, next) {
         const token = jwt.sign( // делаем токен
           { _id: user._id },
           // { _id: '5f59fd0c710b20e7857e392' }, // невалидный айди для тестирования
-          NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
-          { expiresIn: '7d' },
+          JWT_SECRET,
+          { expiresIn: JWT_EXPIRY_TERM },
         );
         res
           .cookie('jwt', token, { // отправляем токен

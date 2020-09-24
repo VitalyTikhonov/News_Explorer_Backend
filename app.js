@@ -1,4 +1,3 @@
-require('dotenv').config();
 // const rateLimit = require('express-rate-limit');
 const express = require('express');
 // const cookieParser = require('cookie-parser');
@@ -6,6 +5,11 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 // const { requestLogger, errorLogger } = require('./middleware/logger');
 
+const {
+  PORT,
+  BASE_PATH,
+  DATABASE_ADDRESS,
+} = require('./configs/config');
 const signup = require('./routes/signup');
 const signin = require('./routes/signin');
 // const cards = require('./routes/cards');
@@ -14,7 +18,7 @@ const signin = require('./routes/signin');
 // const celebValidateRequest = require('./middleware/requestValidators');
 // const NotFoundError = require('./errors/NotFoundError');
 
-mongoose.connect('mongodb://localhost:27017/news_explorer', {
+mongoose.connect(DATABASE_ADDRESS, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useFindAndModify: false,
@@ -22,7 +26,7 @@ mongoose.connect('mongodb://localhost:27017/news_explorer', {
 });
 const app = express();
 
-const { PORT = 3000, BASE_PATH = '/' } = process.env;
+// const { PORT = 3000, BASE_PATH = '/' } = process.env;
 // const { PORT = 3000 } = process.env;
 
 // const limiter = rateLimit({
