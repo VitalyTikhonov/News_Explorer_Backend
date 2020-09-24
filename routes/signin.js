@@ -2,7 +2,7 @@
 const router = require('express').Router();
 const { celebrate, Joi } = require('celebrate');
 
-// const { login } = require('../controllers/users');
+const { login } = require('../controllers/users');
 
 /* РУТЕРЫ */
 router.post(
@@ -17,7 +17,7 @@ router.post(
     { warnings: true }, // просто чтобы позиционно распознавался следующий аргумент
     { mode: 'full' },
   ),
-  // login,
+  login,
 );
 
 /* ЭКСПОРТ */

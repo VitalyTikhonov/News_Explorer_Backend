@@ -5,18 +5,9 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 // const { requestLogger, errorLogger } = require('./middleware/logger');
 
-const {
-  PORT,
-  BASE_PATH,
-  DATABASE_ADDRESS,
-} = require('./configs/config');
-const signup = require('./routes/signup');
-const signin = require('./routes/signin');
-// const cards = require('./routes/cards');
-// const users = require('./routes/users');
-// const auth = require('./middleware/auth');
+const { PORT, DATABASE_ADDRESS } = require('./configs/config');
+const routes = require('./routes/routes');
 // const celebValidateRequest = require('./middleware/requestValidators');
-// const NotFoundError = require('./errors/NotFoundError');
 
 mongoose.connect(DATABASE_ADDRESS, {
   useNewUrlParser: true,
@@ -25,9 +16,6 @@ mongoose.connect(DATABASE_ADDRESS, {
   useUnifiedTopology: true,
 });
 const app = express();
-
-// const { PORT = 3000, BASE_PATH = '/' } = process.env;
-// const { PORT = 3000 } = process.env;
 
 // const limiter = rateLimit({
 //   windowMs: 15 * 60 * 1000,
@@ -44,13 +32,7 @@ app.use(bodyParser.json());
 //   }, 0);
 // });
 
-// app.use('/signup', signup);
-app.use(`${BASE_PATH}signup`, signup);
-app.use(`${BASE_PATH}signin`, signin);
-// app.use(auth);
-// app.use(`${BASE_PATH}cards`, cards);
-// app.use(`${BASE_PATH}users`, users);
-// app.use((req, res, next) => next(new NotFoundError()));
+app.use(routes);
 // app.use(errorLogger);
 // app.use(celebValidateRequest);
 app.use((err, req, res, next) => {
@@ -63,5 +45,6 @@ app.use((err, req, res, next) => {
   next();
 });
 app.listen(PORT, () => {
+  // eslint-disable-next-line no-console
   console.log(`Сервер запущен, порт: ${PORT}.`);
 });
