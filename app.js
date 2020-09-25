@@ -2,7 +2,6 @@ const rateLimit = require('express-rate-limit');
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 
 const { requestLogger, errorLogger } = require('./middleware/logger');
 const { PORT, DATABASE_ADDRESS } = require('./configs/config');
@@ -23,7 +22,7 @@ const limiter = rateLimit({
 });
 
 app.use(limiter);
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(cookieParser());
 app.use(requestLogger);
 // app.get(`${BASE_PATH}/crash-test`, () => {
