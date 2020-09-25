@@ -1,5 +1,5 @@
 const { celebrate, Joi } = require('celebrate');
-// Joi.objectId = require('joi-objectid')(Joi);
+Joi.objectId = require('joi-objectid')(Joi);
 
 const { urlValidatorCheck } = require('../helpers/helpers');
 
@@ -26,7 +26,7 @@ const validateSignin = celebrate(
   { mode: 'full' },
 );
 
-const validateNewArticleInput = celebrate(
+const validatePostArticle = celebrate(
   {
     body: Joi.object().options({ abortEarly: false }).keys({
       keyword: Joi.string().required(),
@@ -42,8 +42,19 @@ const validateNewArticleInput = celebrate(
   { mode: 'full' },
 );
 
+const validateDeleteArticle = celebrate(
+  {
+    params: Joi.object().options({ abortEarly: false }).keys({
+      articleId: Joi.objectId().required(),
+    }),
+  },
+  { warnings: true }, // просто чтобы позиционно распознавался следующий аргумент
+  { mode: 'full' },
+);
+
 module.exports = {
   validateSignup,
   validateSignin,
-  validateNewArticleInput,
+  validatePostArticle,
+  validateDeleteArticle,
 };

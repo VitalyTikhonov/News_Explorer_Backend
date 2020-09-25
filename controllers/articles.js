@@ -1,11 +1,9 @@
 const mongoose = require('mongoose');
 const Article = require('../models/article');
-const { isObjectIdValid } = require('../helpers/helpers');
 
 const NoDocsError = require('../errors/NoDocsError');
 const DocNotFoundError = require('../errors/DocNotFoundError');
 const InvalidInputError = require('../errors/InvalidInputError');
-const NoRightsError = require('../errors/NoRightsError');
 
 function getAllArticles(req, res, next) {
   Article.find({})
@@ -36,22 +34,16 @@ function createArticle(req, res, next) {
       image,
       owner,
     })
-      .then((respobj) => {
-        console.log('respobj', respobj);
-        const { owner, __v, ...rest } = respobj;
-        console.log('rest', rest);
-        res.send({ rest });
-        // const { owner, __v, ...rest } = respobj._doc;
-      })
-      // .then((respObj) => res.send({
-      //   keyword: respObj.keyword,
-      //   title: respObj.title,
-      //   text: respObj.text,
-      //   date: respObj.date,
-      //   source: respObj.source,
-      //   link: respObj.link,
-      //   image: respObj.image,
-      // }))
+      .then((respObj) => res.send({
+        keyword: respObj.keyword,
+        title: respObj.title,
+        text: respObj.text,
+        date: respObj.date,
+        source: respObj.source,
+        link: respObj.link,
+        image: respObj.image,
+        _id: respObj._id,
+      }))
       .catch((err) => {
         if (err instanceof mongoose.Error.ValidationError) {
           next(new InvalidInputError(err));
@@ -64,18 +56,12 @@ function createArticle(req, res, next) {
 
 function deleteArticle(req, res, next) {
   try {
-    const userId = req.user._id; // свой (проверяется в auth)
     const { articleId } = req.params; // проверяется joi-objectid
-    isObjectIdValid(articleId, 'article');
     Article.findById(articleId)
       .orFail(new DocNotFoundError('article'))
       .then((respObj) => {
-        if (respObj.owner.equals(userId)) {
-          respObj.deleteOne()
-            .then((deletedObj) => res.send(deletedObj));
-        } else {
-          next(new NoRightsError());
-        }
+        respObj.deleteOne()
+          .then((deletedObj) => res.send(deletedObj));
       })
       .catch(next);
   } catch (err) {
