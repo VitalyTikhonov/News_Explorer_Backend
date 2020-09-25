@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
+const validator = require('validator');
+
 const { errors } = require('./errorMessages');
 const InvalidObjectIdError = require('../errors/InvalidObjectIdError');
+const InvalidUrlError = require('../errors/InvalidUrlError');
 
 function joinErrorMessages(errorObject) {
   const fieldErrorMap = errors.invalidInput;
@@ -25,7 +28,15 @@ function isObjectIdValid(id, docType) {
   }
 }
 
+function urlValidatorCheck(urlInput) {
+  if (!validator.isURL(urlInput)) {
+    throw new InvalidUrlError();
+  }
+  return urlInput;
+}
+
 module.exports = {
   joinErrorMessages,
   isObjectIdValid,
+  urlValidatorCheck,
 };

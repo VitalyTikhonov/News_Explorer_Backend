@@ -5,11 +5,9 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const { JWT_SECRET, JWT_EXPIRY_DAYS } = require('../configs/config');
 const DocNotFoundError = require('../errors/DocNotFoundError');
-// const NoDocsError = require('../errors/NoDocsError');
 // const BadNewPasswordError = require('../errors/BadNewPasswordError');
 const EmailInUseError = require('../errors/EmailInUseError');
 const InvalidInputError = require('../errors/InvalidInputError');
-// const UnknownRequestorError = require('../errors/UnknownRequestorError');
 const MissingCredentialsError = require('../errors/MissingCredentialsError');
 
 function createUser(req, res, next) {
@@ -53,6 +51,7 @@ function login(req, res, next) {
     присутсвует в запросе, даже если пароль не введен, – просто оно пустое, но это строка.
     Если так, то ошибку выбросит модель, а там у нее будет негативный текст – "Неправильные…",
     что неправильно. Если одно из полей пустое, нужно сообщать "Введите" или типа такого.
+
     – Убрать, когда разберусь с кастомизацией сообщений об ошибках. */
     && email.length !== 0
     && password.length !== 0) {
