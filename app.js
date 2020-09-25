@@ -7,7 +7,8 @@ const bodyParser = require('body-parser');
 
 const { PORT, DATABASE_ADDRESS } = require('./configs/config');
 const routes = require('./routes/routes');
-// const celebValidateRequest = require('./middleware/requestValidators');
+const errorHandler = require('./middleware/error-handler');
+const celebValidateRequest = require('./middleware/requestValidators');
 
 mongoose.connect(DATABASE_ADDRESS, {
   useNewUrlParser: true,
@@ -34,16 +35,17 @@ app.use(bodyParser.json());
 
 app.use(routes);
 // app.use(errorLogger);
-// app.use(celebValidateRequest);
-app.use((err, req, res, next) => {
-  const { statusCode = 500, message } = err;
-  res.status(statusCode).send({
-    message: statusCode === 500
-      ? `На сервере произошла ошибка: ${message}`
-      : message,
-  });
-  next();
-});
+app.use(celebValidateRequest);
+app.use(errorHandler);
+// app.use((err, req, res, next) => {
+//   const { statusCode = 500, message } = err;
+//   res.status(statusCode).send({
+//     message: statusCode === 500
+//       ? `На сервере произошла ошибка: ${message}`
+//       : message,
+//   });
+//   next();
+// });
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
   console.log(`Сервер запущен, порт: ${PORT}.`);
