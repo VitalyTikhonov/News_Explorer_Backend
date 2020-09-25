@@ -5,7 +5,7 @@ const {
   PORT = 3000,
   BASE_PATH = '/',
   JWT_SECRET_PROD,
-  JWT_EXPIRY_TERM = '7d',
+  JWT_EXPIRY_DAYS = 7,
   DATABASE_ADDRESS = 'mongodb://localhost:27017/news_explorer',
 } = process.env;
 
@@ -17,5 +17,5 @@ module.exports = {
   BASE_PATH,
   DATABASE_ADDRESS,
   JWT_SECRET,
-  JWT_EXPIRY_TERM,
+  JWT_EXPIRY_DAYS,
 };

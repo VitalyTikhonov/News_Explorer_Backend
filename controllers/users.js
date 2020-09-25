@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const User = require('../models/user');
-const { JWT_SECRET, JWT_EXPIRY_TERM } = require('../configs/config');
+const { JWT_SECRET, JWT_EXPIRY_DAYS } = require('../configs/config');
 const DocNotFoundError = require('../errors/DocNotFoundError');
 // const NoDocsError = require('../errors/NoDocsError');
 // const BadNewPasswordError = require('../errors/BadNewPasswordError');
@@ -62,11 +62,11 @@ function login(req, res, next) {
           { _id: user._id },
           // { _id: '5f59fd0c710b20e7857e392' }, // невалидный айди для тестирования
           JWT_SECRET,
-          { expiresIn: JWT_EXPIRY_TERM },
+          { expiresIn: JWT_EXPIRY_DAYS },
         );
         res
           .cookie('jwt', token, { // отправляем токен
-            maxAge: 3600000 * 24 * 7,
+            maxAge: 3600000 * 24 * JWT_EXPIRY_DAYS,
             httpOnly: true,
             sameSite: true,
           })
