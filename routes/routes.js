@@ -2,8 +2,8 @@ const router = require('express').Router();
 
 const signup = require('./signup');
 const signin = require('./signin');
-// const users = require('./users');
 // const auth = require('../middleware/auth');
+// const users = require('./users');
 const { BASE_PATH } = require('../configs/config');
 const NotFoundError = require('../errors/NotFoundError');
 

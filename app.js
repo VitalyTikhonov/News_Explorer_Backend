@@ -7,7 +7,7 @@ const { requestLogger, errorLogger } = require('./middleware/logger');
 const { PORT, DATABASE_ADDRESS } = require('./configs/config');
 const routes = require('./routes/routes');
 const errorHandler = require('./middleware/error-handler');
-const celebValidateRequest = require('./middleware/requestValidators');
+const parseCelebError = require('./middleware/parse-celeb-error');
 
 mongoose.connect(DATABASE_ADDRESS, {
   useNewUrlParser: true,
@@ -32,7 +32,7 @@ app.use(requestLogger);
 // });
 app.use(routes);
 app.use(errorLogger);
-app.use(celebValidateRequest);
+app.use(parseCelebError);
 app.use(errorHandler);
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
