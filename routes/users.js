@@ -1,19 +1,18 @@
 /* ИМПОРТ */
 const router = require('express').Router();
-const { celebrate, Joi } = require('celebrate');
-Joi.objectId = require('joi-objectid')(Joi);
+// const {  } = require('../middleware/celeb-validate-req');
 // const validator = require('validator');
 // const { errors } = require('../helpers/errorMessages');
 
-// const {
-//   getAllUsers,
-//   getSingleUser,
-//   updateProfile,
-//   updateAvatar,
-// } = require('../controllers/users');
+const {
+  getCurrentUser,
+  // getSingleUser,
+  // updateProfile,
+  // updateAvatar,
+} = require('../controllers/users');
 
 // /* РУТЕРЫ */
-// // router.get('/', getAllUsers);
+router.get('/me', getCurrentUser); // добавить валидацию куки?
 
 // router.get(
 //   '/:id',

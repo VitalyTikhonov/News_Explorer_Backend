@@ -62,7 +62,7 @@ function login(req, res, next) {
           { _id: user._id },
           // { _id: '5f59fd0c710b20e7857e392' }, // невалидный айди для тестирования
           JWT_SECRET,
-          { expiresIn: JWT_EXPIRY_DAYS },
+          { expiresIn: `${JWT_EXPIRY_DAYS}d` },
         );
         res
           .cookie('jwt', token, { // отправляем токен
@@ -71,18 +71,15 @@ function login(req, res, next) {
             sameSite: true,
           })
           .end();
-
-        /* Как токен попадает в req.cookies.jwt при запросе логина, то есть еще до авторизации?.. */
-        // console.log('req.cookies.jwt', req.cookies.jwt);
       })
       .catch(next);
   }
   return next(new MissingCredentialsError());
 }
 
-function getSingleUser(req, res, next) {
+function getCurrentUser(req, res, next) {
   try {
-    const userId = req.params.id; // интересующего пользователя (joi-objectid)
+    const userId = req.user.id; // отправителя запроса (проверяется isObjectIdValid в auth)
     User.findById(userId)
       .orFail(new DocNotFoundError('user'))
       .then((respObj) => res.send(respObj))
@@ -95,5 +92,5 @@ function getSingleUser(req, res, next) {
 module.exports = {
   createUser,
   login,
-  getSingleUser,
+  getCurrentUser,
 };
