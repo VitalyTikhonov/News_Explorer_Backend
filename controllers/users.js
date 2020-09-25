@@ -79,10 +79,19 @@ function login(req, res, next) {
 
 function getCurrentUser(req, res, next) {
   try {
-    const userId = req.user.id; // отправителя запроса (проверяется isObjectIdValid в auth)
+    const userId = req.user._id;
+    /* идентификатор отправителя запроса (ПОДЧЕРКИВАНИЕ ПЕРЕД id!)
+    (проверяется isObjectIdValid в auth) */
+
     User.findById(userId)
       .orFail(new DocNotFoundError('user'))
-      .then((respObj) => res.send(respObj))
+      // .then((respObj) => res.send(respObj))
+      .then((respObj) => {
+        res.send({
+          email: respObj.email,
+          name: respObj.name,
+        });
+      })
       .catch(next);
   } catch (err) {
     next(err);
