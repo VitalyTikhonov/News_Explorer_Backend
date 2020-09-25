@@ -36,7 +36,22 @@ function createArticle(req, res, next) {
       image,
       owner,
     })
-      .then((respObj) => res.send(respObj))
+      .then((respobj) => {
+        console.log('respobj', respobj);
+        const { owner, __v, ...rest } = respobj;
+        console.log('rest', rest);
+        res.send({ rest });
+        // const { owner, __v, ...rest } = respobj._doc;
+      })
+      // .then((respObj) => res.send({
+      //   keyword: respObj.keyword,
+      //   title: respObj.title,
+      //   text: respObj.text,
+      //   date: respObj.date,
+      //   source: respObj.source,
+      //   link: respObj.link,
+      //   image: respObj.image,
+      // }))
       .catch((err) => {
         if (err instanceof mongoose.Error.ValidationError) {
           next(new InvalidInputError(err));

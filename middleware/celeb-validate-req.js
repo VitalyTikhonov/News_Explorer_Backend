@@ -1,7 +1,7 @@
 const { celebrate, Joi } = require('celebrate');
 // Joi.objectId = require('joi-objectid')(Joi);
 
-const urlValidatorCheck = require('../helpers/helpers');
+const { urlValidatorCheck } = require('../helpers/helpers');
 
 const validateSignup = celebrate(
   {
