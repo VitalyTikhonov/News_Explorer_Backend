@@ -1,16 +1,10 @@
 module.exports.errors = {
   invalidInput: {
     name: 'Ошибка в поле Name',
-    email: 'Ошибка в электронной почте',
+    email: 'Ошибка в поле Email',
     about: 'Ошибка в поле About',
     avatar: 'Ошибка в URL аватарки',
     link: 'Ошибка в URL',
-  },
-  missing: {
-    email: 'Не указана электронная почта',
-  },
-  notUnique: {
-    email: 'На этот адрес электронной почты уже зарегистрирован другой пользователь',
   },
   invalidCredentials: 'Неправильные почта или пароль',
   missingCredentials: 'Введите логин и пароль',
