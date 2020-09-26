@@ -34,11 +34,14 @@ function createUser(req, res, next) {
           });
         })
         .catch((err) => {
-          if (err instanceof mongoose.Error.ValidationError) {
-            next(new InvalidInputError(err));
-          } else if (err.code === 11000) {
-            next(new EmailInUseError());
-          }
+          console.log('================================\n', err.Error);
+          res.send(err);
+          // next(err);
+          // if (err instanceof mongoose.Error.ValidationError) {
+          //   next(new InvalidInputError(err));
+          // } else if (err.code === 11000) {
+          //   next(new EmailInUseError());
+          // }
         });
     });
 }

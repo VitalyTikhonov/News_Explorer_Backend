@@ -12,19 +12,19 @@ const userSchema = new mongoose.Schema({
     unique: [true, errors.notUnique.email],
     validate: {
       validator: (email) => validator.isEmail(email),
-      message: errors.invalidInput.email,
+      message: errors.unknownInputError.email,
     },
   },
   password: {
     type: String,
-    required: true,
+    required: [true, errors.missing.password],
     select: false,
   },
   name: {
     type: String,
-    required: true,
-    minlength: 2,
-    maxlength: 30,
+    required: [true, errors.missing.name],
+    minlength: [2, errors.wrongLength.name.min],
+    maxlength: [30, errors.wrongLength.name.max],
   },
 });
 
