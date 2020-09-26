@@ -3,6 +3,7 @@ const { isObjectIdValid } = require('../helpers/helpers');
 const User = require('../models/user');
 const NotAuthorizedError = require('../errors/NotAuthorizedError');
 const UnknownRequestorError = require('../errors/UnknownRequestorError');
+const InvalidObjectIdError = require('../errors/InvalidObjectIdError');
 
 const { JWT_SECRET } = require('../configs/config');
 
@@ -25,7 +26,9 @@ module.exports = async (req, res, next) => {
 
   try {
     const userId = req.user._id; // после записи payload в req.user
-    isObjectIdValid(userId, 'requestor');
+    if (!isObjectIdValid(userId)) {
+      throw new InvalidObjectIdError('requestor');
+    }
     const checkIdentity = await User.exists({ _id: userId });
     if (!checkIdentity) {
       throw new UnknownRequestorError();

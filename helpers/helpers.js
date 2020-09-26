@@ -3,12 +3,12 @@ const validator = require('validator');
 
 const { errors } = require('./errorMessages');
 const InvalidObjectIdError = require('../errors/InvalidObjectIdError');
-const InvalidUrlError = require('../errors/InvalidUrlError');
 
 function joinErrorMessages(errorObject) {
   const fieldErrorMap = errors.invalidInput;
   const expectedBadFields = Object.keys(fieldErrorMap);
   const actualBadFields = Object.keys(errorObject.errors);
+  const badFieldNumber = actualBadFields.length;
   const messageArray = [];
   let jointErrorMessage = null;
   if (expectedBadFields.some((field) => actualBadFields.includes(field))) {
@@ -17,22 +17,20 @@ function joinErrorMessages(errorObject) {
         messageArray.push(fieldErrorMap[field]);
       }
     });
-    jointErrorMessage = messageArray.join('. ');
+    jointErrorMessage = `${badFieldNumber > 1 ? fieldErrorMap.introPl : fieldErrorMap.introSg}${messageArray.join(', ')}`;
   }
   return jointErrorMessage;
 }
 
-function isObjectIdValid(id, docType) {
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    throw new InvalidObjectIdError(docType);
-  }
+function isObjectIdValid(id) {
+  return mongoose.Types.ObjectId.isValid(id);
 }
 
-function urlValidatorCheck(urlInput) {
-  if (!validator.isURL(urlInput)) {
-    throw new InvalidUrlError();
+function urlValidatorCheck(urlInput, helpers) {
+  if (validator.isURL(urlInput)) {
+    return urlInput;
   }
-  return urlInput;
+  return helpers.message(errors.badUrl);
 }
 
 module.exports = {

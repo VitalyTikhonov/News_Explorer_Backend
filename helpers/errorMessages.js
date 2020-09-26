@@ -1,10 +1,19 @@
 module.exports.errors = {
   invalidInput: {
-    name: 'Ошибка в поле Name',
-    email: 'Ошибка в поле Email',
-    about: 'Ошибка в поле About',
-    avatar: 'Ошибка в URL аватарки',
-    link: 'Ошибка в URL',
+    introPl: 'Проблема с полями ', // plural, единственное число
+    introSg: 'Проблема с полем ', // singular, множественное число
+    name: 'Name',
+    email: 'Email',
+    password: 'Password',
+    about: 'About',
+    avatar: 'Avatar',
+    link: 'Link',
+    keyword: 'Keyword',
+    title: 'Title',
+    text: 'Text',
+    date: 'Date',
+    source: 'Source',
+    image: 'Image',
   },
   invalidCredentials: 'Неправильные почта или пароль',
   missingCredentials: 'Введите логин и пароль',
@@ -21,9 +30,23 @@ module.exports.errors = {
   },
   emailInUse: 'Этот адрес электронной почты уже используется',
   badPassword: (pswlength) => `Введите пароль длиной не менее ${pswlength} зн., состоящий из латинских букв, цифр и специальных символов`,
+  badUrl: 'ошибка в URL',
   objectId: {
     user: 'Ошибка в идентификаторе пользователя',
     requestor: 'Ошибка в идентификаторе автора запроса',
     article: 'Ошибка в идентификаторе статьи',
+    articleId: 'ошибка в идентификаторе статьи',
+  },
+  missing: {
+    introPl: 'Проблема с полями ',
+    introSg: 'Проблема с полем ',
+    keyword: 'не указано ключевое слово',
+    title: 'не указано название',
+    text: 'не введен текст',
+    date: 'отсутствует дата',
+    source: 'не указан источник',
+    link: 'нет ссылки на статью',
+    image: 'нет ссылки на иллюстрацию',
+    articleId: 'не передан идентификатор статьи',
   },
 };
