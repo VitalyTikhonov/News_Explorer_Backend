@@ -6,7 +6,6 @@ const UnknownRequestorError = require('../errors/UnknownRequestorError');
 
 const { JWT_SECRET } = require('../configs/config');
 
-// eslint-disable-next-line consistent-return
 module.exports = async (req, res, next) => {
   const token = req.cookies.jwt;
 
@@ -35,5 +34,5 @@ module.exports = async (req, res, next) => {
     next(err);
   }
 
-  next();
+  return next();
 };

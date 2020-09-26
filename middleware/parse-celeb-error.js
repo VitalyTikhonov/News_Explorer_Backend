@@ -8,7 +8,7 @@ module.exports = (err, req, res, next) => {
   const arrayFromCelebErrObj = Object.entries(arrayFromCelebErrObjMap);
   const celebFieldsArr = [];
   const celebMessagesArr = [];
-  // eslint-disable-next-line array-callback-return
+
   arrayFromCelebErrObj.map((reqSeg) => {
     const arrayFromSegmentObj = Object.entries(reqSeg[1]);
     const arrayfromErrObj = arrayFromSegmentObj[1][1];
@@ -17,7 +17,7 @@ module.exports = (err, req, res, next) => {
     celebFieldsArr.push(celebFields);
 
     const celebMessages = arrayfromErrObj.map((errObj) => errObj.message).join('; ');
-    celebMessagesArr.push(celebMessages);
+    return celebMessagesArr.push(celebMessages);
   });
   const allCelebFields = celebFieldsArr.join(', ');
   const allCelebMessages = celebMessagesArr.join('; ');

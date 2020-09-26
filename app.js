@@ -1,11 +1,11 @@
-const rateLimit = require('express-rate-limit');
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 
+const rateLimiter = require('./middleware/rate-limiter');
 const { requestLogger, errorLogger } = require('./middleware/logger');
 const { PORT, DATABASE_ADDRESS } = require('./configs/config');
-const routes = require('./routes/routes');
+const routes = require('./routes/index');
 const errorHandler = require('./middleware/error-handler');
 const parseCelebError = require('./middleware/parse-celeb-error');
 
@@ -16,12 +16,8 @@ mongoose.connect(DATABASE_ADDRESS, {
   useUnifiedTopology: true,
 });
 const app = express();
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 100,
-});
 
-app.use(limiter);
+app.use(rateLimiter);
 app.use(express.json());
 app.use(cookieParser());
 app.use(requestLogger);
@@ -35,6 +31,5 @@ app.use(errorLogger);
 app.use(parseCelebError);
 app.use(errorHandler);
 app.listen(PORT, () => {
-  // eslint-disable-next-line no-console
   console.log(`Сервер запущен, порт: ${PORT}.`);
 });
