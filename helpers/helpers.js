@@ -6,7 +6,7 @@ const InvalidObjectIdError = require('../errors/InvalidObjectIdError');
 const InvalidUrlError = require('../errors/InvalidUrlError');
 
 function joinErrorMessages(errorObject) {
-  const fieldErrorMap = errors.unknownInputError;
+  const fieldErrorMap = errors.invalidInput;
   const expectedBadFields = Object.keys(fieldErrorMap);
   const actualBadFields = Object.keys(errorObject.errors);
   const messageArray = [];

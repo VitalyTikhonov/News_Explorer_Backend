@@ -4,7 +4,7 @@ class InvalidUrlError extends Error {
   constructor() {
     super();
     this.statusCode = 400;
-    this.message = errors.unknownInputError.link;
+    this.message = errors.invalidInput.link;
   }
 }
 
