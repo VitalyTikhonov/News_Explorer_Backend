@@ -18,4 +18,5 @@ V_Tikhonov_Course_05_Project_15.*
 # DevNotes.txt
 DevNotes_Security.txt
 .env
+.envOFF
 nginx_config_backup
