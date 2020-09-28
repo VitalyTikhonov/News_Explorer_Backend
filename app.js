@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const rateLimiter = require('./middleware/rate-limiter');
 const { requestLogger, errorLogger } = require('./middleware/logger');
 const { PORT, DATABASE_ADDRESS } = require('./configs/config');
-const routes = require('./routes/index');
+const routes = require('./routes');
 const errorHandler = require('./middleware/error-handler');
 const parseCelebError = require('./middleware/parse-celeb-error');
 

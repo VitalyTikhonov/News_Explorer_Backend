@@ -1,8 +1,8 @@
 const { celebrate, Joi } = require('celebrate');
-// Joi.objectId = require('joi-objectid')(Joi);
+Joi.objectId = require('joi-objectid')(Joi);
 // const validator = require('validator');
 
-const { urlValidatorCheck, isObjectIdValid } = require('../helpers/helpers');
+const { objectIdMongooseCheck, urlValidatorCheck } = require('../helpers/helpers');
 const { errors } = require('../helpers/errorMessages');
 
 const validateSignup = celebrate(
@@ -32,10 +32,9 @@ const validatePostArticle = celebrate(
   {
     params: Joi.object().options({ abortEarly: false }).keys({
       articleId: Joi.objectId().required()
-        .custom(isObjectIdValid)
+        .custom(objectIdMongooseCheck)
         .messages({
           'any.required': errors.missing.articleId,
-          'objectId': errors.objectId.articleId,
         }),
     }),
     /* abortEarly – чтобы валидировались все поля одного типа (например, все в body) */

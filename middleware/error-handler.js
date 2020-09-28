@@ -3,13 +3,13 @@ const { NODE_ENV } = require('../configs/config');
 const errorHandler = (err, req, res, next) => {
   const { statusCode = 500, message } = err;
 
-  const errorMessage = {
-    message: statusCode === 500
-      ? 'На сервере произошла ошибка'
-      : message,
-  };
+  let responseBody;
 
-  const responseBody = NODE_ENV === 'production' ? errorMessage : err;
+  if (statusCode !== 500 || NODE_ENV === 'production') {
+    responseBody = { message };
+  } else {
+    responseBody = err;
+  }
 
   res.status(statusCode).send(responseBody);
   next();
