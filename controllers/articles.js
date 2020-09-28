@@ -46,7 +46,6 @@ function createArticle(req, res, next) {
       }))
       .catch((err) => {
         if (err instanceof mongoose.Error.ValidationError) {
-          // console.log('err', err);
           next(new InvalidInputError(err));
         }
       });

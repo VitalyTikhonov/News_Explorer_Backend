@@ -11,7 +11,6 @@ const {
 
 const JWT_SECRET_DEV = '3e43db7c07c391400256fbe0f17b732a593ccdebeab36d99689f2a60a7f56db7';
 const JWT_SECRET = NODE_ENV === 'production' ? JWT_SECRET_PROD : JWT_SECRET_DEV;
-// console.log('NODE_ENV', NODE_ENV);
 
 module.exports = {
   NODE_ENV,

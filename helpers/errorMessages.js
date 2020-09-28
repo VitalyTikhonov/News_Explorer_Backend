@@ -1,6 +1,6 @@
 module.exports.errors = {
   invalidInput: {
-    introPl: 'Проблема с полями ', // plural, единственное число
+    introPl: 'Проблемы с полями ', // plural, единственное число
     introSg: 'Проблема с полем ', // singular, множественное число
     name: 'Name',
     email: 'Email',
@@ -30,7 +30,10 @@ module.exports.errors = {
   },
   emailInUse: 'Этот адрес электронной почты уже используется',
   badPassword: (pswlength) => `Введите пароль длиной не менее ${pswlength} зн., состоящий из латинских букв, цифр и специальных символов`,
-  badUrl: 'ошибка в URL',
+  badUrl: {
+    link: 'ошибка в URL статьи',
+    image: 'ошибка в URL изображения',
+  },
   objectId: {
     user: 'Ошибка в идентификаторе пользователя',
     requestor: 'Ошибка в идентификаторе автора запроса',
@@ -38,7 +41,7 @@ module.exports.errors = {
     articleId: 'ошибка в идентификаторе статьи',
   },
   missing: {
-    introPl: 'Проблема с полями ',
+    introPl: 'Проблемы с полями ',
     introSg: 'Проблема с полем ',
     keyword: 'не указано ключевое слово',
     title: 'не указано название',

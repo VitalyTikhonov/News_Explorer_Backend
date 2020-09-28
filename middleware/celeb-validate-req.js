@@ -1,12 +1,12 @@
 const { celebrate, Joi } = require('celebrate');
 Joi.objectId = require('joi-objectid')(Joi);
-// const validator = require('validator');
 
 const { isObjectIdValid, urlValidatorCheck } = require('../helpers/helpers');
 const { errors } = require('../helpers/errorMessages');
 
 const validateSignup = celebrate(
   {
+    /* abortEarly – чтобы валидировались все поля одного типа (например, все в body) */
     body: Joi.object().options({ abortEarly: false }).keys({
       email: Joi.string().email().required(),
       password: Joi.string().required(),
@@ -14,7 +14,7 @@ const validateSignup = celebrate(
     }),
   },
   { warnings: true }, // просто чтобы позиционно распознавался следующий аргумент
-  { mode: 'full' },
+  { mode: 'full' }, // чтобы валидировались все типы полей (и body, и params и т. п.)
 );
 
 const validateSignin = celebrate(
@@ -25,12 +25,11 @@ const validateSignin = celebrate(
     }),
   },
   { warnings: true }, // просто чтобы позиционно распознавался следующий аргумент
-  { mode: 'full' },
+  { mode: 'full' }, // чтобы валидировались все типы полей (и body, и params и т. п.)
 );
 
 const validatePostArticle = celebrate(
   {
-    /* abortEarly – чтобы валидировались все поля одного типа (например, все в body) */
     body: Joi.object().options({ abortEarly: false }).keys({
       keyword: Joi.string().required()
         .messages({
@@ -66,7 +65,7 @@ const validatePostArticle = celebrate(
           if (urlValidatorCheck(value)) {
             return value;
           }
-          return helpers.message(errors.badUrl);
+          return helpers.message(errors.badUrl.link);
         }),
       image: Joi.string().required()
         .messages({
@@ -77,7 +76,7 @@ const validatePostArticle = celebrate(
           if (urlValidatorCheck(value)) {
             return value;
           }
-          return helpers.message(errors.badUrl);
+          return helpers.message(errors.badUrl.image);
         }),
     }),
   },

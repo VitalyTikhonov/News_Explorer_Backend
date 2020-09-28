@@ -39,5 +39,3 @@ module.exports = (err, req, res, next) => {
   );
   return next(returnedErr);
 };
-
-/* Простите, психанул… */

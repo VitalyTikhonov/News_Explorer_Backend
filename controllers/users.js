@@ -5,7 +5,6 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const { JWT_SECRET, JWT_EXPIRY_DAYS } = require('../configs/config');
 const DocNotFoundError = require('../errors/DocNotFoundError');
-// const BadNewPasswordError = require('../errors/BadNewPasswordError');
 const EmailInUseError = require('../errors/EmailInUseError');
 const InvalidInputError = require('../errors/InvalidInputError');
 const MissingCredentialsError = require('../errors/MissingCredentialsError');
