@@ -2,7 +2,7 @@ const { celebrate, Joi } = require('celebrate');
 Joi.objectId = require('joi-objectid')(Joi);
 // const validator = require('validator');
 
-const { objectIdMongooseCheck, urlValidatorCheck } = require('../helpers/helpers');
+const { isObjectIdValid, urlValidatorCheck } = require('../helpers/helpers');
 const { errors } = require('../helpers/errorMessages');
 
 const validateSignup = celebrate(
@@ -30,13 +30,6 @@ const validateSignin = celebrate(
 
 const validatePostArticle = celebrate(
   {
-    params: Joi.object().options({ abortEarly: false }).keys({
-      articleId: Joi.objectId().required()
-        .custom(objectIdMongooseCheck)
-        .messages({
-          'any.required': errors.missing.articleId,
-        }),
-    }),
     /* abortEarly – чтобы валидировались все поля одного типа (например, все в body) */
     body: Joi.object().options({ abortEarly: false }).keys({
       keyword: Joi.string().required()
@@ -69,13 +62,23 @@ const validatePostArticle = celebrate(
           'any.required': errors.missing.link,
           'string.empty': errors.missing.link,
         })
-        .custom(urlValidatorCheck),
+        .custom((value, helpers) => {
+          if (urlValidatorCheck(value)) {
+            return value;
+          }
+          return helpers.message(errors.badUrl);
+        }),
       image: Joi.string().required()
         .messages({
           'any.required': errors.missing.image,
           'string.empty': errors.missing.image,
         })
-        .custom(urlValidatorCheck),
+        .custom((value, helpers) => {
+          if (urlValidatorCheck(value)) {
+            return value;
+          }
+          return helpers.message(errors.badUrl);
+        }),
     }),
   },
   { warnings: true }, // просто чтобы позиционно распознавался следующий аргумент
@@ -85,7 +88,16 @@ const validatePostArticle = celebrate(
 const validateDeleteArticle = celebrate(
   {
     params: Joi.object().options({ abortEarly: false }).keys({
-      articleId: Joi.objectId().required(),
+      articleId: Joi.required()
+        .messages({
+          'any.required': errors.missing.articleId,
+        })
+        .custom((id, helpers) => {
+          if (isObjectIdValid(id)) {
+            return id;
+          }
+          return helpers.message(errors.objectId.articleId);
+        }),
     }),
   },
   { warnings: true }, // просто чтобы позиционно распознавался следующий аргумент

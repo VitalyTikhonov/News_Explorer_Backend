@@ -26,23 +26,12 @@ function isObjectIdValid(id) {
   return mongoose.Types.ObjectId.isValid(id);
 }
 
-function objectIdMongooseCheck(id, helpers) {
-  if (isObjectIdValid(id)) {
-    return id;
-  }
-  return helpers.message(errors.objectId.articleId);
-}
-
-function urlValidatorCheck(urlInput, helpers) {
-  if (validator.isURL(urlInput)) {
-    return urlInput;
-  }
-  return helpers.message(errors.badUrl);
+function urlValidatorCheck(urlInput) {
+  return validator.isURL(urlInput);
 }
 
 module.exports = {
   joinErrorMessages,
   isObjectIdValid,
-  objectIdMongooseCheck,
   urlValidatorCheck,
 };
