@@ -8,9 +8,24 @@ const validateSignup = celebrate(
   {
     /* abortEarly – чтобы валидировались все поля одного типа (например, все в body) */
     body: Joi.object().options({ abortEarly: false }).keys({
-      email: Joi.string().email().required(),
-      password: Joi.string().required(),
-      name: Joi.string().required().min(2).max(30),
+      email: Joi.string().email().required()
+        .messages({
+          'any.required': errors.missing.email,
+          'string.empty': errors.missing.email,
+          'string.email': errors.badEmail,
+        }),
+      password: Joi.string().required()
+        .messages({
+          'any.required': errors.missing.password,
+          'string.empty': errors.missing.password,
+        }),
+      name: Joi.string().required().min(2).max(30)
+        .messages({
+          'any.required': errors.missing.name,
+          'string.empty': errors.missing.name,
+          'string.min': errors.tooShort('ИМЯ', 2),
+          'string.max': errors.tooLong('ИМЯ', 30),
+        }),
     }),
   },
   { warnings: true }, // просто чтобы позиционно распознавался следующий аргумент
@@ -20,8 +35,17 @@ const validateSignup = celebrate(
 const validateSignin = celebrate(
   {
     body: Joi.object().options({ abortEarly: false }).keys({
-      email: Joi.string().email().required(),
-      password: Joi.string().required(),
+      email: Joi.string().email().required()
+        .messages({
+          'any.required': errors.missing.email,
+          'string.empty': errors.missing.email,
+          'string.email': errors.badEmail,
+        }),
+      password: Joi.string().required()
+        .messages({
+          'any.required': errors.missing.password,
+          'string.empty': errors.missing.password,
+        }),
     }),
   },
   { warnings: true }, // просто чтобы позиционно распознавался следующий аргумент
