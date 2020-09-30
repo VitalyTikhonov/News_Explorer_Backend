@@ -59,21 +59,6 @@ const validateSignin = celebrate(
 
 const validatePostArticle = celebrate(
   {
-    /* Для тестирования случая, когда в одном запросе проверяются компоненты разных типов
-    (параметры, тело и т. д.) >> */
-    params: Joi.object().options({ abortEarly: false }).keys({
-      articleId: Joi.required()
-        .messages({
-          'any.required': errors.missing.articleId,
-        })
-        .custom((id, helpers) => {
-          if (isObjectIdValid(id)) {
-            return id;
-          }
-          return helpers.message(errors.objectId.articleId);
-        }),
-    }),
-    /* << */
     body: Joi.object().options({ abortEarly: false }).keys({
       keyword: Joi.string().required()
         .messages({
