@@ -10,24 +10,24 @@ const validateSignup = celebrate(
     body: Joi.object().options({ abortEarly: false }).keys({
       email: Joi.string().email().required()
         .messages({
-          'string.base': errors.notString('Email'),
+          'string.base': errors.notString,
           'any.required': errors.missing.email,
           'string.empty': errors.missing.email,
           'string.email': errors.badEmail,
         }),
       password: Joi.string().required()
         .messages({
-          'string.base': errors.notString('Password'),
+          'string.base': errors.notString,
           'any.required': errors.missing.password,
           'string.empty': errors.missing.password,
         }),
       name: Joi.string().required().min(2).max(30)
         .messages({
-          'string.base': errors.notString('Name'),
+          'string.base': errors.notString,
           'any.required': errors.missing.name,
           'string.empty': errors.missing.name,
-          'string.min': errors.tooShort('ИМЯ', 2),
-          'string.max': errors.tooLong('ИМЯ', 30),
+          'string.min': errors.tooShort(2),
+          'string.max': errors.tooLong(30),
         }),
     }),
   },
@@ -40,14 +40,14 @@ const validateSignin = celebrate(
     body: Joi.object().options({ abortEarly: false }).keys({
       email: Joi.string().email().required()
         .messages({
-          'string.base': errors.notString('Email'),
+          'string.base': errors.notString,
           'any.required': errors.missing.email,
           'string.empty': errors.missing.email,
           'string.email': errors.badEmail,
         }),
       password: Joi.string().required()
         .messages({
-          'string.base': errors.notString('Password'),
+          'string.base': errors.notString,
           'any.required': errors.missing.password,
           'string.empty': errors.missing.password,
         }),
@@ -59,40 +59,55 @@ const validateSignin = celebrate(
 
 const validatePostArticle = celebrate(
   {
+    /* Для тестирования случая, когда в одном запросе проверяются компоненты разных типов
+    (параметры, тело и т. д.) >> */
+    params: Joi.object().options({ abortEarly: false }).keys({
+      articleId: Joi.required()
+        .messages({
+          'any.required': errors.missing.articleId,
+        })
+        .custom((id, helpers) => {
+          if (isObjectIdValid(id)) {
+            return id;
+          }
+          return helpers.message(errors.objectId.articleId);
+        }),
+    }),
+    /* << */
     body: Joi.object().options({ abortEarly: false }).keys({
       keyword: Joi.string().required()
         .messages({
-          'string.base': errors.notString('Keyword'),
+          'string.base': errors.notString,
           'any.required': errors.missing.keyword,
           'string.empty': errors.missing.keyword,
         }),
       title: Joi.string().required()
         .messages({
-          'string.base': errors.notString('Title'),
+          'string.base': errors.notString,
           'any.required': errors.missing.title,
           'string.empty': errors.missing.title,
         }),
       text: Joi.string().required()
         .messages({
-          'string.base': errors.notString('Text'),
+          'string.base': errors.notString,
           'any.required': errors.missing.text,
           'string.empty': errors.missing.text,
         }),
       date: Joi.string().required()
         .messages({
-          'string.base': errors.notString('Date'),
+          'string.base': errors.notString,
           'any.required': errors.missing.date,
           'string.empty': errors.missing.date,
         }),
       source: Joi.string().required()
         .messages({
-          'string.base': errors.notString('Source'),
+          'string.base': errors.notString,
           'any.required': errors.missing.source,
           'string.empty': errors.missing.source,
         }),
       link: Joi.string().required()
         .messages({
-          'string.base': errors.notString('Link'),
+          'string.base': errors.notString,
           'any.required': errors.missing.link,
           'string.empty': errors.missing.link,
         })
@@ -104,7 +119,7 @@ const validatePostArticle = celebrate(
         }),
       image: Joi.string().required()
         .messages({
-          'string.base': errors.notString('Image'),
+          'string.base': errors.notString,
           'any.required': errors.missing.image,
           'string.empty': errors.missing.image,
         })

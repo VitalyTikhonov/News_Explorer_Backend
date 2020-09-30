@@ -56,7 +56,9 @@ module.exports.errors = {
     password: 'не введен пароль',
     name: 'не указано имя',
   },
-  tooShort: (field, min) => `в поле ${field} должно быть не менее ${min} симв`,
-  tooLong: (field, max) => `в поле ${field} должно быть не более ${max} симв`,
-  notString: (field) => `значение в поле ${field} должно быть простым текстом (string)`,
+  celebIntroPl: 'Проблемы с несколькими полями',
+  celebIntroSg: 'Проблема с одним из полей',
+  tooShort: (min) => `должно быть не менее ${min} симв`,
+  tooLong: (max) => `должно быть не более ${max} симв`,
+  notString: 'значение должно быть простым текстом (string)',
 };
