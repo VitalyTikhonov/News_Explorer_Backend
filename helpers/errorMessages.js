@@ -58,4 +58,5 @@ module.exports.errors = {
   },
   tooShort: (field, min) => `в поле ${field} должно быть не менее ${min} симв`,
   tooLong: (field, max) => `в поле ${field} должно быть не более ${max} симв`,
+  notString: (field) => `значение в поле ${field} должно быть простым текстом (string)`,
 };

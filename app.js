@@ -2,6 +2,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 
+// const { errors } = require('celebrate');
 const rateLimiter = require('./middleware/rate-limiter');
 const { requestLogger, errorLogger } = require('./middleware/logger');
 const { PORT, DATABASE_ADDRESS } = require('./configs/config');
@@ -29,6 +30,7 @@ app.use(requestLogger);
 app.use(routes);
 app.use(errorLogger);
 app.use(parseCelebError);
+// app.use(errors());
 app.use(errorHandler);
 app.listen(PORT, () => {
   console.log(`Сервер запущен, порт: ${PORT}.`);
