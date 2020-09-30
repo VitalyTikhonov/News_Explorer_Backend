@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { isObjectIdValid } = require('../helpers/helpers');
+const { isObjectIdValid } = require('../helpers');
 const User = require('../models/user');
 const NotAuthorizedError = require('../errors/NotAuthorizedError');
 const UnknownRequestorError = require('../errors/UnknownRequestorError');

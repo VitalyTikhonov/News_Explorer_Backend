@@ -1,7 +1,7 @@
 const { celebrate, Joi } = require('celebrate');
 Joi.objectId = require('joi-objectid')(Joi);
 
-const { isObjectIdValid, urlValidatorCheck } = require('../helpers/helpers');
+const { isObjectIdValid, urlValidatorCheck } = require('../helpers');
 const { errors } = require('../configs/errorMessages');
 
 const validateSignup = celebrate(

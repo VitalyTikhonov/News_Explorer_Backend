@@ -1,4 +1,4 @@
-const { joinErrorMessages } = require('../helpers/helpers');
+const { joinErrorMessages } = require('../helpers');
 
 class InvalidInputError extends Error {
   constructor(error) {
