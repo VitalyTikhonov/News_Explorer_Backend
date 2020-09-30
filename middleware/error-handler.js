@@ -1,7 +1,8 @@
 const { NODE_ENV } = require('../configs/config');
+const { errors } = require('../configs/errorMessages');
 
 const errorHandler = (err, req, res, next) => {
-  const { statusCode = 500, message } = err;
+  const { statusCode = 500, message = errors.serverError } = err;
 
   let responseBody;
 

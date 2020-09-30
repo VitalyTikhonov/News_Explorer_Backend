@@ -1,4 +1,4 @@
-const { errors } = require('../helpers/errorMessages');
+const { errors } = require('../configs/errorMessages');
 
 class NotAuthorizedError extends Error {
   constructor() {

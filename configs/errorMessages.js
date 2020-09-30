@@ -61,4 +61,5 @@ module.exports.errors = {
   tooShort: (min) => `должно быть не менее ${min} симв`,
   tooLong: (max) => `должно быть не более ${max} симв`,
   notString: 'значение должно быть простым текстом (string)',
+  serverError: 'На сервере произошла ошибка.',
 };

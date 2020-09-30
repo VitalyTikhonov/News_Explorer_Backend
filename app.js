@@ -32,6 +32,4 @@ app.use(routes);
 app.use(errorLogger);
 app.use(parseCelebError);
 app.use(errorHandler);
-app.listen(PORT, () => {
-  console.log(`Сервер запущен, порт: ${PORT}.`);
-});
+app.listen(PORT);
