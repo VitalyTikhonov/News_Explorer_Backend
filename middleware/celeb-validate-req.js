@@ -4,15 +4,6 @@ Joi.objectId = require('joi-objectid')(Joi);
 const { isObjectIdValid, urlValidatorCheck } = require('../helpers/helpers');
 const { errors } = require('../configs/errorMessages');
 
-const validateAuthCookie = celebrate(
-  {
-    cookies: Joi.object().keys({
-      jwt: Joi.string().required(),
-      // .messages({}),
-    }),
-  },
-);
-
 const validateSignup = celebrate(
   {
     /* abortEarly – чтобы валидировались все поля одного типа (например, все в body) */
@@ -149,7 +140,6 @@ const validateDeleteArticle = celebrate(
 );
 
 module.exports = {
-  validateAuthCookie,
   validateSignup,
   validateSignin,
   validatePostArticle,
