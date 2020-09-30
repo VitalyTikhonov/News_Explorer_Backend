@@ -1,8 +1,8 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
+const helmet = require('helmet');
 
-// const { errors } = require('celebrate');
 const rateLimiter = require('./middleware/rate-limiter');
 const { requestLogger, errorLogger } = require('./middleware/logger');
 const { PORT, DATABASE_ADDRESS } = require('./configs/config');
@@ -18,6 +18,7 @@ mongoose.connect(DATABASE_ADDRESS, {
 });
 const app = express();
 
+app.use(helmet());
 app.use(rateLimiter);
 app.use(express.json());
 app.use(cookieParser());
@@ -30,7 +31,6 @@ app.use(requestLogger);
 app.use(routes);
 app.use(errorLogger);
 app.use(parseCelebError);
-// app.use(errors());
 app.use(errorHandler);
 app.listen(PORT, () => {
   console.log(`Сервер запущен, порт: ${PORT}.`);
