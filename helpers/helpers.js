@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 
-const { errors } = require('./errorMessages');
+const { errors } = require('../configs/errorMessages');
 // const InvalidObjectIdError = require('../errors/InvalidObjectIdError');
 
 function joinErrorMessages(errorObject) {
