@@ -6,7 +6,7 @@ const DocNotFoundError = require('../errors/DocNotFoundError');
 const InvalidInputError = require('../errors/InvalidInputError');
 
 function getAllArticles(req, res, next) {
-  Article.find({})
+  Article.find({ owner: req.user._id })
     .orFail(new NoDocsError('article'))
     .then((respObj) => res.send(respObj))
     .catch(next);
