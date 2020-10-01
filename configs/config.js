@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const {
   NODE_ENV,
-  PORT = 3000,
+  PORT = 3001,
   BASE_PATH = '/',
   JWT_SECRET_PROD,
   JWT_EXPIRY_DAYS = 7,

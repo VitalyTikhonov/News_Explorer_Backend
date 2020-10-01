@@ -8,8 +8,10 @@ const articles = require('./articles');
 const { BASE_PATH } = require('../configs/config');
 const NotFoundError = require('../errors/NotFoundError');
 
-router.get(`${BASE_PATH}crash-test`, () => {
+router.get(`${BASE_PATH}crash-test`, (req) => {
   setTimeout(() => {
+    const fullUrl = `${req.protocol}://${req.get('host')}${req.originalUrl}`;
+    console.log('fullUrl', fullUrl);
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });
