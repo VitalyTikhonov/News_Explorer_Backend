@@ -20,3 +20,4 @@ DevNotes_Security.txt
 .env
 .envOFF
 nginx_config_backup
+server_file_management
