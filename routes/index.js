@@ -11,7 +11,7 @@ const NotFoundError = require('../errors/NotFoundError');
 router.get(`${BASE_PATH}crash-test`, (req) => {
   setTimeout(() => {
     const fullUrl = `${req.protocol}://${req.get('host')}${req.originalUrl}`;
-    console.log('fullUrl', fullUrl);
+    console.log('fullUrl NEWSEXPL', fullUrl);
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });

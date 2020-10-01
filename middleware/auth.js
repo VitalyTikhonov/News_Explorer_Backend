@@ -11,7 +11,7 @@ module.exports = async (req, res, next) => {
   const token = req.cookies.jwt;
 
   if (!token) {
-    console.log('NO TOKEN');
+    // console.log('NO TOKEN');
     return next(new NotAuthorizedError());
   }
 
@@ -20,9 +20,9 @@ module.exports = async (req, res, next) => {
   try {
     payload = jwt.verify(token, JWT_SECRET);
   } catch {
-    console.log('WRONG TOKEN');
-    console.log('token', token);
-    console.log('JWT_SECRET', JWT_SECRET);
+    // console.log('WRONG TOKEN');
+    console.log('AUTH NEWSEXPL token', token);
+    // console.log('JWT_SECRET', JWT_SECRET);
     return next(new NotAuthorizedError());
   }
 

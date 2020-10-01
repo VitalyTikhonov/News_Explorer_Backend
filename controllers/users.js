@@ -51,6 +51,7 @@ function login(req, res, next) {
         JWT_SECRET,
         { expiresIn: `${JWT_EXPIRY_DAYS}d` },
       );
+      console.log('LOGIN NEWSEXPL token', token);
       res
         .cookie('jwt', token, { // отправляем токен
           maxAge: 3600000 * 24 * JWT_EXPIRY_DAYS,
