@@ -13,6 +13,11 @@ router.use(`${BASE_PATH}signin`, signin);
 router.use(auth);
 router.use(`${BASE_PATH}users`, users);
 router.use(`${BASE_PATH}articles`, articles);
+router.get(`${BASE_PATH}crash-test`, () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 router.use((req, res, next) => next(new NotFoundError()));
 
 module.exports = router;
