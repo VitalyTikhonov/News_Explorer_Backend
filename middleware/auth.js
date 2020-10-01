@@ -21,6 +21,8 @@ module.exports = async (req, res, next) => {
     payload = jwt.verify(token, JWT_SECRET);
   } catch {
     console.log('WRONG TOKEN');
+    console.log('token', token);
+    console.log('JWT_SECRET', JWT_SECRET);
     return next(new NotAuthorizedError());
   }
 
