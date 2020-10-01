@@ -7,6 +7,7 @@ const {
   JWT_SECRET_PROD,
   JWT_EXPIRY_DAYS = 7,
   DATABASE_ADDRESS = 'mongodb://localhost:27017/news_explorer',
+  JWT_COOKIE_NAME = 'nexpl-jwt',
 } = process.env;
 
 const JWT_SECRET_DEV = '3e43db7c07c391400256fbe0f17b732a593ccdebeab36d99689f2a60a7f56db7';
@@ -19,4 +20,5 @@ module.exports = {
   DATABASE_ADDRESS,
   JWT_SECRET,
   JWT_EXPIRY_DAYS,
+  JWT_COOKIE_NAME,
 };

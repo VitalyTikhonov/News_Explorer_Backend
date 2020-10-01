@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const User = require('../models/user');
-const { JWT_SECRET, JWT_EXPIRY_DAYS } = require('../configs/config');
+const { JWT_SECRET, JWT_EXPIRY_DAYS, JWT_COOKIE_NAME } = require('../configs/config');
 const DocNotFoundError = require('../errors/DocNotFoundError');
 const EmailInUseError = require('../errors/EmailInUseError');
 const InvalidInputError = require('../errors/InvalidInputError');
@@ -53,7 +53,7 @@ function login(req, res, next) {
       );
       console.log('LOGIN NEWSEXPL token', token);
       res
-        .cookie('jwt', token, { // отправляем токен
+        .cookie(JWT_COOKIE_NAME, token, { // отправляем токен
           maxAge: 3600000 * 24 * JWT_EXPIRY_DAYS,
           httpOnly: true,
           sameSite: true,

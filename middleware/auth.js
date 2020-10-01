@@ -5,10 +5,10 @@ const NotAuthorizedError = require('../errors/NotAuthorizedError');
 const UnknownRequestorError = require('../errors/UnknownRequestorError');
 const InvalidObjectIdError = require('../errors/InvalidObjectIdError');
 
-const { JWT_SECRET } = require('../configs/config');
+const { JWT_SECRET, JWT_COOKIE_NAME } = require('../configs/config');
 
 module.exports = async (req, res, next) => {
-  const token = req.cookies.jwt;
+  const token = req.cookies[JWT_COOKIE_NAME];
 
   if (!token) {
     // console.log('NO TOKEN');
