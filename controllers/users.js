@@ -51,7 +51,6 @@ function login(req, res, next) {
         JWT_SECRET,
         { expiresIn: `${JWT_EXPIRY_DAYS}d` },
       );
-      console.log('LOGIN NEWSEXPL token', token);
       res
         .cookie(JWT_COOKIE_NAME, token, { // отправляем токен
           maxAge: 3600000 * 24 * JWT_EXPIRY_DAYS,
@@ -70,7 +69,6 @@ function getCurrentUser(req, res, next) {
 
   User.findById(userId)
     .orFail(new DocNotFoundError('user'))
-    // .then((respObj) => res.send(respObj))
     .then((respObj) => {
       res.send({
         email: respObj.email,

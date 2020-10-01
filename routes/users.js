@@ -4,7 +4,7 @@ const router = require('express').Router();
 const { getCurrentUser } = require('../controllers/users');
 
 /* РУТЕРЫ */
-router.get('/me', getCurrentUser); // добавить валидацию куки (вместо isObjectIdValid в auth)?
+router.get('/me', getCurrentUser);
 
 /* ЭКСПОРТ */
 module.exports = router;
