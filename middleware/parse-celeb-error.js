@@ -21,11 +21,11 @@ module.exports = (err, req, res, next) => {
     });
   });
 
-  const labelMessArray = errObjArr.map((errObj) => `${errObj.context.label}: ${errObj.message}`);
+  const labelMessArray = errObjArr.map((errObj) => `${errObj.context.label} – ${errObj.message}`);
 
   const finalMessage = labelMessArray.join('; ');
   const returnedErr = new Error();
   returnedErr.statusCode = 400;
-  returnedErr.message = `${errObjArrLength > 1 ? errors.celebIntroPl : errors.celebIntroSg} (${finalMessage})`;
+  returnedErr.message = `${errObjArrLength > 1 ? errors.celebIntroPl : errors.celebIntroSg}: ${finalMessage}`;
   return next(returnedErr);
 };
