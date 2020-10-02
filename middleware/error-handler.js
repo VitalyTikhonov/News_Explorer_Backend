@@ -9,7 +9,7 @@ const errorHandler = (err, req, res, next) => {
   if (statusCode !== 500 || NODE_ENV === 'production') {
     responseBody = { message };
   } else {
-    responseBody = err;
+    responseBody = { message: err.message };
   }
 
   res.status(statusCode).send(responseBody);

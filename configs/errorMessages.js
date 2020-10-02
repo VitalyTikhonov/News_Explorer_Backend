@@ -18,6 +18,7 @@ module.exports.errors = {
   invalidCredentials: 'Неправильные почта или пароль',
   missingCredentials: 'Введите логин и пароль',
   notAuthorized: 'Необходима авторизация',
+  noDeleteArticleRights: 'Нельзя удалить чужую статью',
   notFound: 'Запрашиваемый ресурс не найден',
   docNotFound: {
     user: 'Такого пользователя нет',

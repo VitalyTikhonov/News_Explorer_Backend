@@ -4,6 +4,7 @@ const Article = require('../models/article');
 const NoDocsError = require('../errors/NoDocsError');
 const DocNotFoundError = require('../errors/DocNotFoundError');
 const InvalidInputError = require('../errors/InvalidInputError');
+const NoRightsError = require('../errors/NoRightsError');
 
 function getAllArticles(req, res, next) {
   Article.find({ owner: req.user._id })
@@ -56,12 +57,18 @@ function createArticle(req, res, next) {
 
 function deleteArticle(req, res, next) {
   try {
+    const userId = req.user._id; // свой (проверяется в auth)
     const { articleId } = req.params; // проверяется joi-objectid
     Article.findById(articleId)
+      .select('+owner')
       .orFail(new DocNotFoundError('article'))
       .then((respObj) => {
-        respObj.deleteOne()
-          .then((deletedObj) => res.send(deletedObj));
+        if (respObj.owner.equals(userId)) {
+          respObj.deleteOne()
+            .then((deletedObj) => res.send(deletedObj));
+        } else {
+          next(new NoRightsError());
+        }
       })
       .catch(next);
   } catch (err) {
