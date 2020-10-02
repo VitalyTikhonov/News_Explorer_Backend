@@ -15,28 +15,26 @@
 <!-- tocstop -->
 
 ##### Описание
-Версия 0.0.1
+**Версия 0.0.1**
+***Версия 0.0.1***
 ##### Размещение
-[Наверх :arrow_up:](#По-русски)
+[Наверх :arrow_up:](#news-explorer-backend)
 ##### Функционал проекта
-[Наверх :arrow_up:](#По-русски)
+[Наверх :arrow_up:](#news-explorer-backend)
 ##### Используемые технологии
-[Наверх :arrow_up:](#По-русски)
+[Наверх :arrow_up:](#news-explorer-backend)
 ##### Как воспользоваться проектом
-[Наверх :arrow_up:](#По-русски)
+[Наверх :arrow_up:](#news-explorer-backend)
 ###### В рамках курса "Веб-разработка" в Яндекс.Практикуме
-[Наверх :arrow_up:](#По-русски)
 ***
 ##### About
-Version 0.0.1
+**Version 0.0.1**
 ##### Access
-[To top :arrow_up:](#In-English)
+[To top :arrow_up:](#news-explorer-backend)
 ##### Project functionality
-[To top :arrow_up:](#In-English)
+[To top :arrow_up:](#news-explorer-backend)
 ##### Technologies used
-[To top :arrow_up:](#In-English)
+[To top :arrow_up:](#news-explorer-backend)
 ##### How to use the project
-[To top :arrow_up:](#In-English)
+[To top :arrow_up:](#news-explorer-backend)
 ###### As part of the Web-Development course at Yandex.Praktikum
-
-[To top :arrow_up:](#In-English)
