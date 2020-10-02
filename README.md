@@ -1,4 +1,4 @@
-# News Explorer Backend 0.0.1
+# News Explorer Backend
 <!-- toc -->
 
 - [По-русски](#по-русски)
@@ -16,6 +16,7 @@
 <!-- tocstop -->
 
 # По-русски
+Версия 0.0.1
 ##### Размещение
 ##### Функционал проекта
 ##### Используемые технологии
@@ -54,6 +55,7 @@ zddcvzcv sddv
 ***В рамках курса "Веб-разработка" в Яндекс.Практикуме***
 ***
 # In English
+Version 0.0.1
 ##### Access
 dfgsdfb  dfsdfbs dvsdvb
 zddcvzcv sddv
@@ -90,4 +92,5 @@ zddcvzcv sddv
 ##### Technologies used
 ##### How to use the project
 ***As part of the Web-Development course at Yandex.Praktikum***
-:arrow_up:
+
+[:arrow_up:](#news-explorer-backend)
