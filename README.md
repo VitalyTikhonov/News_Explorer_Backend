@@ -57,7 +57,7 @@
 
 [Наверх :arrow_up:](#news-explorer-backend)
 
-*В рамках курса **Веб-разработка** в Яндекс.Практикуме*
+_В рамках курса **Веб-разработка** в **Яндекс.Практикуме**_
 ***
 #### About
 - Graduation project of the course: a website for news search and saving
@@ -102,4 +102,4 @@ Execute requests to the routes listed above, specifying data fields in the reque
 
 [To top :arrow_up:](#news-explorer-backend)
 
-*As part of the **Web-Development** course at ***Yandex.Praktikum*
+_As part of the **Web-Development** course at **Yandex.Praktikum**_
