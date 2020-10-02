@@ -15,11 +15,11 @@
 <!-- tocstop -->
 
 #### Описание
-**Дипломный проект курса:** сайт для поиска и хранения новостных статей
+  **Дипломный проект курса:** сайт для поиска и хранения новостных статей
 
-**Компонент:** бэкенд
+  **Компонент:** бэкенд
 
-**Версия:** 0.0.1
+  **Версия:** 0.0.1
 
 #### Размещение
 Проект задеплоен по следующим адресам:
@@ -36,6 +36,7 @@
    - POST /articles (создаёт статью),
    - DELETE /articles/:articleId (удаляет статью, при условии что она принадлежит пользователю),
 а также запросы по несуществующим адресам, отправляя в ответ JSON-объекты.
+
 [Наверх :arrow_up:](#news-explorer-backend)
 #### Используемые технологии
 - Node.js
@@ -49,18 +50,21 @@
 - Сelebrate и Joi
 - Winston
 - Helmet
+
 [Наверх :arrow_up:](#news-explorer-backend)
 #### Как воспользоваться проектом
 Обращаться к роутам проекта, указывая в теле запросов необходимые данные.
+
 [Наверх :arrow_up:](#news-explorer-backend)
+
 *В рамках курса **Веб-разработка** в Яндекс.Практикуме*
 ***
 #### About
-**Graduation project of the course:** a website for news search and saving
+  **Graduation project of the course:** a website for news search and saving
 
-**Component:** backend
+  **Component:** backend
 
-**Version:** 0.0.1
+  **Version:** 0.0.1
 
 #### Access
 The project is deployed at the following URLs:
@@ -77,6 +81,7 @@ The server handles requests for user creation (_POST /signup_) and login (_POST 
    - POST /articles (creates an article),
    - DELETE /articles/:articleId (deletes the article, provided that it belongs to the user),
 as well as requests to non-existent addresses, sending JSON objects in response.
+
 [To top :arrow_up:](#news-explorer-backend)
 #### Technologies used
 - Node.js
@@ -90,8 +95,11 @@ as well as requests to non-existent addresses, sending JSON objects in response.
 - Сelebrate и Joi
 - Winston
 - Helmet
+
 [To top :arrow_up:](#news-explorer-backend)
 #### How to use the project
 Execute requests to the routes listed above, specifying data fields in the request body, as necessary.
+
 [To top :arrow_up:](#news-explorer-backend)
+
 *As part of the **Web-Development** course at ***Yandex.Praktikum*
