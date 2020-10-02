@@ -15,11 +15,11 @@
 <!-- tocstop -->
 
 #### Описание
-  Дипломный проект курса: сайт для поиска и хранения новостных статей
+- Дипломный проект курса: сайт для поиска и хранения новостных статей
 
-  Компонент: бэкенд
+- Компонент: бэкенд
 
-  Версия: 0.0.1
+- Версия: 0.0.1
 
 #### Размещение
 Проект задеплоен по следующим адресам:
@@ -60,12 +60,11 @@
 *В рамках курса **Веб-разработка** в Яндекс.Практикуме*
 ***
 #### About
-------
-  **Graduation project of the course:** a website for news search and saving
+- Graduation project of the course: a website for news search and saving
 
-  **Component:** backend
+- Component: backend
 
-  **Version:** 0.0.1
+- Version: 0.0.1
 
 #### Access
 The project is deployed at the following URLs:
