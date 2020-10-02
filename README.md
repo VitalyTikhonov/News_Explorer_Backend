@@ -9,7 +9,7 @@
 - [Как воспользоваться проектом](#Как-воспользоваться-проектом)
 - [In English](#in-english)
 - [Access](#Access)
-- [Project functionality](#project-functionality)
+- [Project functionality](#Project Functionality)
 - [Technologies used](#Technologies used)
 - [How to use the project](#How to use the project)
 
@@ -19,11 +19,101 @@
 ##### Размещение
 ##### Функционал проекта
 ##### Используемые технологии
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
+а
 ##### Как воспользоваться проектом
 ***В рамках курса "Веб-разработка" в Яндекс.Практикуме***
 ***
 # In English
 ##### Access
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
 ##### Project functionality
 ##### Technologies used
 ##### How to use the project
