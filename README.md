@@ -35,6 +35,7 @@
    - GET /articles (возвращает все сохраненные пользователем статьи),
    - POST /articles (создаёт статью),
    - DELETE /articles/:articleId (удаляет статью, при условии что она принадлежит пользователю),
+   
 а также запросы по несуществующим адресам, отправляя в ответ JSON-объекты.
 
 [Наверх :arrow_up:](#news-explorer-backend)
@@ -80,6 +81,7 @@ The server handles requests for user creation (_POST /signup_) and login (_POST 
    - GET /articles (returns all the articles the user has saved),
    - POST /articles (creates an article),
    - DELETE /articles/:articleId (deletes the article, provided that it belongs to the user),
+
 as well as requests to non-existent addresses, sending JSON objects in response.
 
 [To top :arrow_up:](#news-explorer-backend)
