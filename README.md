@@ -1,96 +1,42 @@
 # News Explorer Backend
 <!-- toc -->
-
-- [По-русски](#по-русски)
-
-- [Размещение](#hазмещение)
-- [Функционал проекта](#функционал-проекта)
-- [Используемые технологии](#используемые-технологии)
+##### По-русски
+- [Описание](#Описание)
+- [Размещение](#Размещение)
+- [Функционал проекта](#Функционал-проекта)
+- [Используемые технологии](#Используемые-технологии)
 - [Как воспользоваться проектом](#Как-воспользоваться-проектом)
-- [In English](#in-english)
+##### In English
+- [About](#About)
 - [Access](#Access)
-- [Project functionality](#Project Functionality)
-- [Technologies used](#Technologies used)
-- [How to use the project](#How to use the project)
-
+- [Project functionality](#Project-functionality)
+- [Technologies used](#Technologies-used)
+- [How to use the project](#How-to-use-the-project)
 <!-- tocstop -->
 
-# По-русски
+##### Описание
 Версия 0.0.1
 ##### Размещение
+[Наверх :arrow_up:](#По-русски)
 ##### Функционал проекта
+[Наверх :arrow_up:](#По-русски)
 ##### Используемые технологии
-dfgsdfb  dfsdfbs dvsdvb
-zddcvzcv sddv
-
-dfgsdfb  dfsdfbs dvsdvb
-zddcvzcv sddv
-dfgsdfb  dfsdfbs dvsdvb
-zddcvzcv sddv
-
-dfgsdfb  dfsdfbs dvsdvb
-zddcvzcv sddv
-dfgsdfb  dfsdfbs dvsdvb
-zddcvzcv sddv
-
-dfgsdfb  dfsdfbs dvsdvb
-zddcvzcv sddv
-dfgsdfb  dfsdfbs dvsdvb
-zddcvzcv sddv
-
-dfgsdfb  dfsdfbs dvsdvb
-zddcvzcv sddv
-dfgsdfb  dfsdfbs dvsdvb
-zddcvzcv sddv
-
-dfgsdfb  dfsdfbs dvsdvb
-zddcvzcv sddv
-dfgsdfb  dfsdfbs dvsdvb
-zddcvzcv sddv
-
-dfgsdfb  dfsdfbs dvsdvb
-zddcvzcv sddv
-
+[Наверх :arrow_up:](#По-русски)
 ##### Как воспользоваться проектом
-***В рамках курса "Веб-разработка" в Яндекс.Практикуме***
+[Наверх :arrow_up:](#По-русски)
+###### В рамках курса "Веб-разработка" в Яндекс.Практикуме
+[Наверх :arrow_up:](#По-русски)
 ***
-# In English
+##### About
 Version 0.0.1
 ##### Access
-dfgsdfb  dfsdfbs dvsdvb
-zddcvzcv sddv
-
-dfgsdfb  dfsdfbs dvsdvb
-zddcvzcv sddv
-dfgsdfb  dfsdfbs dvsdvb
-zddcvzcv sddv
-
-dfgsdfb  dfsdfbs dvsdvb
-zddcvzcv sddv
-dfgsdfb  dfsdfbs dvsdvb
-zddcvzcv sddv
-
-dfgsdfb  dfsdfbs dvsdvb
-zddcvzcv sddv
-dfgsdfb  dfsdfbs dvsdvb
-zddcvzcv sddv
-
-dfgsdfb  dfsdfbs dvsdvb
-zddcvzcv sddv
-dfgsdfb  dfsdfbs dvsdvb
-zddcvzcv sddv
-
-dfgsdfb  dfsdfbs dvsdvb
-zddcvzcv sddv
-dfgsdfb  dfsdfbs dvsdvb
-zddcvzcv sddv
-
-dfgsdfb  dfsdfbs dvsdvb
-zddcvzcv sddv
-
+[To top :arrow_up:](#In-English)
 ##### Project functionality
+[To top :arrow_up:](#In-English)
 ##### Technologies used
+[To top :arrow_up:](#In-English)
 ##### How to use the project
-***As part of the Web-Development course at Yandex.Praktikum***
+[To top :arrow_up:](#In-English)
+###### As part of the Web-Development course at Yandex.Praktikum
 
-[:arrow_up:](#news-explorer-backend)
+[To top :arrow_up:](#In-English)
