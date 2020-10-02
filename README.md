@@ -19,102 +19,75 @@
 ##### Размещение
 ##### Функционал проекта
 ##### Используемые технологии
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
-а
+dfgsdfb  dfsdfbs dvsdvb
+zddcvzcv sddv
+
+dfgsdfb  dfsdfbs dvsdvb
+zddcvzcv sddv
+dfgsdfb  dfsdfbs dvsdvb
+zddcvzcv sddv
+
+dfgsdfb  dfsdfbs dvsdvb
+zddcvzcv sddv
+dfgsdfb  dfsdfbs dvsdvb
+zddcvzcv sddv
+
+dfgsdfb  dfsdfbs dvsdvb
+zddcvzcv sddv
+dfgsdfb  dfsdfbs dvsdvb
+zddcvzcv sddv
+
+dfgsdfb  dfsdfbs dvsdvb
+zddcvzcv sddv
+dfgsdfb  dfsdfbs dvsdvb
+zddcvzcv sddv
+
+dfgsdfb  dfsdfbs dvsdvb
+zddcvzcv sddv
+dfgsdfb  dfsdfbs dvsdvb
+zddcvzcv sddv
+
+dfgsdfb  dfsdfbs dvsdvb
+zddcvzcv sddv
+
 ##### Как воспользоваться проектом
 ***В рамках курса "Веб-разработка" в Яндекс.Практикуме***
 ***
 # In English
 ##### Access
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
+dfgsdfb  dfsdfbs dvsdvb
+zddcvzcv sddv
+
+dfgsdfb  dfsdfbs dvsdvb
+zddcvzcv sddv
+dfgsdfb  dfsdfbs dvsdvb
+zddcvzcv sddv
+
+dfgsdfb  dfsdfbs dvsdvb
+zddcvzcv sddv
+dfgsdfb  dfsdfbs dvsdvb
+zddcvzcv sddv
+
+dfgsdfb  dfsdfbs dvsdvb
+zddcvzcv sddv
+dfgsdfb  dfsdfbs dvsdvb
+zddcvzcv sddv
+
+dfgsdfb  dfsdfbs dvsdvb
+zddcvzcv sddv
+dfgsdfb  dfsdfbs dvsdvb
+zddcvzcv sddv
+
+dfgsdfb  dfsdfbs dvsdvb
+zddcvzcv sddv
+dfgsdfb  dfsdfbs dvsdvb
+zddcvzcv sddv
+
+dfgsdfb  dfsdfbs dvsdvb
+zddcvzcv sddv
+
 ##### Project functionality
 ##### Technologies used
 ##### How to use the project
 ***As part of the Web-Development course at Yandex.Praktikum***
+:arrow_up:
