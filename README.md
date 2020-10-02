@@ -1,19 +1,19 @@
 # News Explorer Backend
 <!-- toc -->
-#### По-русски
+##### По-русски
 - [Описание](#Описание)
 - [Размещение](#Размещение)
 - [Функционал проекта](#Функционал-проекта)
 - [Используемые технологии](#Используемые-технологии)
 - [Как воспользоваться проектом](#Как-воспользоваться-проектом)
-#### In English
+##### In English
 - [About](#About)
 - [Access](#Access)
 - [Project functionality](#Project-functionality)
 - [Technologies used](#Technologies-used)
 - [How to use the project](#How-to-use-the-project)
 <!-- tocstop -->
-
+---
 #### Описание
 - Дипломный проект курса: сайт для поиска и хранения новостных статей
 
