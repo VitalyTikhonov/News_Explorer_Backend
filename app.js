@@ -2,7 +2,9 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const helmet = require('helmet');
+const cors = require('cors');
 
+const { corsOptions } = require('./middleware/cors');
 const rateLimiter = require('./middleware/rate-limiter');
 const { requestLogger, errorLogger } = require('./middleware/logger');
 const { PORT, DATABASE_ADDRESS } = require('./configs/config');
@@ -18,6 +20,7 @@ mongoose.connect(DATABASE_ADDRESS, {
 });
 const app = express();
 
+app.use('*', cors(corsOptions));
 app.use(helmet());
 app.use(rateLimiter);
 app.use(express.json());
