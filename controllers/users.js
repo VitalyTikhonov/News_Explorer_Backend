@@ -57,9 +57,17 @@ function login(req, res, next) {
           httpOnly: true,
           sameSite: true,
         })
-        .end();
+        .send({ message: 'Добро пожаловать!' });
+      // .end();
     })
     .catch(next);
+}
+
+function logout(req, res) {
+  res
+    .clearCookie(JWT_COOKIE_NAME)
+    .send({ message: 'Досвидосы!' });
+  // .end();
 }
 
 function getCurrentUser(req, res, next) {
@@ -81,5 +89,6 @@ function getCurrentUser(req, res, next) {
 module.exports = {
   createUser,
   login,
+  logout,
   getCurrentUser,
 };

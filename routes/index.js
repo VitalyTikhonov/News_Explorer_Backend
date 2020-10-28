@@ -2,6 +2,7 @@ const router = require('express').Router();
 
 const signup = require('./signup');
 const signin = require('./signin');
+const signout = require('./signout');
 const auth = require('../middleware/auth');
 const users = require('./users');
 const articles = require('./articles');
@@ -10,6 +11,7 @@ const NotFoundError = require('../errors/NotFoundError');
 
 router.use(`${BASE_PATH}signup`, signup);
 router.use(`${BASE_PATH}signin`, signin);
+router.use(`${BASE_PATH}signout`, signout);
 router.use(auth);
 router.use(`${BASE_PATH}users`, users);
 router.use(`${BASE_PATH}articles`, articles);
