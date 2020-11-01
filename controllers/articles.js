@@ -23,7 +23,7 @@ function createArticle(req, res, next) {
       date,
       source,
       link,
-      image,
+      urlToImage,
     } = req.body;
     Article.create({
       keyword,
@@ -32,7 +32,7 @@ function createArticle(req, res, next) {
       date,
       source,
       link,
-      image,
+      urlToImage,
       owner,
     })
       .then((respObj) => res.send({
@@ -42,7 +42,7 @@ function createArticle(req, res, next) {
         date: respObj.date,
         source: respObj.source,
         link: respObj.link,
-        image: respObj.image,
+        urlToImage: respObj.urlToImage,
         _id: respObj._id,
       }))
       .catch((err) => {
