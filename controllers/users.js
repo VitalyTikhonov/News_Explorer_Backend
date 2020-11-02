@@ -57,7 +57,7 @@ function login(req, res, next) {
           httpOnly: true,
           sameSite: true,
         })
-        .send({ message: 'Добро пожаловать!' });
+        .send({ name: user.name });
       // .end();
     })
     .catch(next);
