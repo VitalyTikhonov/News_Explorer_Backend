@@ -102,17 +102,17 @@ const validatePostArticle = celebrate(
           }
           return helpers.message(errors.badUrl.link);
         }),
-      image: Joi.string().required()
+      urlToImage: Joi.string().required()
         .messages({
           'string.base': errors.notString,
-          'any.required': errors.missing.image,
-          'string.empty': errors.missing.image,
+          'any.required': errors.missing.urlToImage,
+          'string.empty': errors.missing.urlToImage,
         })
         .custom((value, helpers) => {
           if (urlValidatorCheck(value)) {
             return value;
           }
-          return helpers.message(errors.badUrl.image);
+          return helpers.message(errors.badUrl.urlToImage);
         }),
     }),
   },

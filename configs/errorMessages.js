@@ -13,7 +13,7 @@ module.exports.errors = {
     text: 'Text',
     date: 'Date',
     source: 'Source',
-    image: 'Image',
+    urlToImage: 'Image',
   },
   invalidCredentials: 'Неправильные почта или пароль',
   missingCredentials: 'Введите логин и пароль',
@@ -33,7 +33,7 @@ module.exports.errors = {
   badPassword: (pswlength) => `Введите пароль длиной не менее ${pswlength} зн., состоящий из латинских букв, цифр и специальных символов`,
   badUrl: {
     link: 'ошибка в URL статьи',
-    image: 'ошибка в URL изображения',
+    urlToImage: 'ошибка в URL изображения',
   },
   badEmail: 'ошибка в адресе электронной почты',
   objectId: {
@@ -51,7 +51,7 @@ module.exports.errors = {
     date: 'отсутствует дата',
     source: 'не указан источник',
     link: 'нет ссылки на статью',
-    image: 'нет ссылки на иллюстрацию',
+    urlToImage: 'нет ссылки на иллюстрацию',
     articleId: 'не передан идентификатор статьи',
     email: 'не указана электронная почта',
     password: 'не введен пароль',
