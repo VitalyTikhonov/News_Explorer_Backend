@@ -22,10 +22,10 @@ const app = express();
 
 app.use('*', cors(corsOptions));
 app.use(helmet());
+app.use(requestLogger); // перед rateLimiter
 app.use(rateLimiter);
 app.use(express.json());
 app.use(cookieParser());
-app.use(requestLogger);
 app.use(routes);
 app.use(errorLogger);
 app.use(parseCelebError);
